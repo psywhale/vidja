@@ -5,7 +5,7 @@ require_once('config.php');
 
 require_once("themes/head.html");
 
-$con = new mysqli($CFG->$dbhost, $CFG->dbuser, $CFG->dbpassword, $CFG->dbname, $CFG->dbport, $CFG->dbsocket)
+$con = new mysqli($CFG->dbhost, $CFG->dbuser, $CFG->dbpassword, $CFG->dbname, $CFG->dbport, $CFG->dbsocket)
 	or die ('Could not connect to the database server' . mysqli_connect_error());
 
 echo '<div class="page-header">

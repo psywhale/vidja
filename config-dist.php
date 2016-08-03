@@ -1,6 +1,7 @@
 <?php
 unset $CFG;
-$CFG = stdClass();
+global $CFG;
+$CFG = new stdClass();
 $CFG->dbhost="localhost";
 $CFG->dbport=3306;
 $CFG->dbsocket="";
