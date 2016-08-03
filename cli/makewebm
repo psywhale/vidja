@@ -1,0 +1,22 @@
+#!/bin/bash
+#makes a thumbnail for video
+
+if [ -f "$1" ]; then
+    VIDFILE="$1"
+    BASENAME=`basename -z "$VIDFILE"`
+    FILENAME=${BASENAME%%.*}
+    echo "VID: $VIDFILE  BN: $BASENAME FN: $FILENAME"
+#    exit
+else
+    echo "No file specified"
+    exit
+fi
+
+if [[ $(file --mime-type -b "$VIDFILE") == video/* ]]; then
+    ffmpeg -v 0 -progress "/tmp/movie$FILENAME.status" -hwaccel auto -i "$VIDFILE" -vf scale=w=320:h=240:force_original_aspect_ratio=decrease -vcodec vp9 -acodec libvorbis "$FILENAME.webm" &
+
+else
+    echo "Not a video file"
+    exit
+fi
+#base64 Types\ of\ Play.webm | cut -c1-22 | sed s/[^A-Za-z]//g |cut -c1-9 | head -1

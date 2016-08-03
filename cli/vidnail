@@ -1,0 +1,22 @@
+#!/bin/bash
+#makes a thumbnail for video
+
+if [ -f "$1" ]; then
+    VIDFILE="$1"
+    BASENAME=`basename $1`
+    FILENAME=${BASENAME%%.*}
+    echo "VID: $VIDFILE  FN: $BASENAME"
+else
+    echo "No file specified"
+    exit
+fi
+
+if [[ $(file --mime-type -b "$VIDFILE") == video/* ]]; then
+    ffmpeg -i $VIDFILE -ss 00:00:33 -vframes 1 $FILENAME.jpg
+else
+    echo "Not a video file"
+    exit
+fi
+
+
+
