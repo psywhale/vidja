@@ -1,5 +1,5 @@
 <?php
-unset $CFG;
+unset($CFG);
 global $CFG;
 $CFG = new stdClass();
 $CFG->dbhost="localhost";
