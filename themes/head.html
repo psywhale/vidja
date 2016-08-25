@@ -1,4 +1,5 @@
 <?php
+
 echo <<< END
 <!DOCTYPE html>
 <html lang="en">
@@ -45,14 +46,34 @@ echo <<< END
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Vidja Video server</a>
+          <a class="navbar-brand" href="/">Vidja Video server</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">None</a></li>
-            <li><a href="#contact">None</a></li>
-            
+END;
+
+$active = ' class="active" ';
+$addactive = "";
+$progactive = "";
+
+$cleanheadpath = preg_replace("/[^a-z.]/","",$_SERVER['PHP_SELF']);
+
+switch($cleanheadpath) {
+ 	case "add.php":
+		$addactive = $active;
+		break;
+	case "progress.php":
+		$progactive = $active;
+		break;
+	default:
+		$homeactive = $active;
+		break;
+}
+
+echo "            <li $homeactive><a href=\"/\">Home</a></li>";
+echo "            <li $addactive><a href=\"/add.php\">Add</a></li>";
+echo "            <li $progactive><a href=\"/progress.php\">None</a></li>";
+echo <<< ENDOL
 <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -73,4 +94,4 @@ echo <<< END
     <div class="container theme-showcase" role="main">
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
-END;
+ENDOL;

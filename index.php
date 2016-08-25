@@ -12,7 +12,7 @@ echo '<div class="page-header">
         <h1>Video List</h1>
       </div>';
 
-echo "<h1><span class=\"label label-warning\">Click the Thumbnail to load the video</span></h1>";
+echo "<h4><span class=\"label label-info\">Click the Thumbnail to load the video</span></h4>";
 
 $query = "SELECT `Movies`.`id`,     `Movies`.`Title`,     `Movies`.`sharecode`,     `Movies`.`added` FROM `vidja`.`Movies";
 
