@@ -8,3 +8,9 @@ $CFG->dbsocket="";
 $CFG->dbuser="";
 $CFG->dbpassword="";
 $CFG->dbname="vidja";
+
+$CFG->workdir="";
+$CFG->videostore="";
+$CFG->thumbstore="";
+
+require_once("lib/load.php");
