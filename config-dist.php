@@ -2,6 +2,7 @@
 unset($CFG);
 global $CFG;
 $CFG = new stdClass();
+$CFG->dbtype="mysql";
 $CFG->dbhost="localhost";
 $CFG->dbport=3306;
 $CFG->dbsocket="";
