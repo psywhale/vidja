@@ -1,0 +1,15 @@
+{
+  "name": "vidja/web",
+  "description": "Vidja Web movie platform",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Brian Carpenter",
+      "email": "brian.carpenter@wosc.edu"
+    }
+  ],
+  "require": {
+    "catfan/medoo": "v1.1.2"
+  }
+}
