@@ -13,25 +13,26 @@ echo "<h4><span class=\"label label-info\">Click the Thumbnail to load the video
 
 
 $movies = $DB->get("Movies");
-foreach($movies as $movie) {
-	echo '<div class="row"><div class="col-md-6" >
+if(is_array($movies)) {
+    foreach ($movies as $movie) {
+        echo '<div class="row"><div class="col-md-6" >
     <div class="panel panel-primary">
        <div class="panel-heading">
-         <h3 class="panel-title">'.$movie['Title'].'</h3>
+         <h3 class="panel-title">' . $movie['Title'] . '</h3>
        </div>
-       <div class="panel-body" id="rw'.$movie['id'].'">
-          <img src="/movietest/'.$movie['sharecode'].'.jpg"/>
+       <div class="panel-body" id="rw' . $movie['id'] . '">
+          <img src="/movietest/' . $movie['sharecode'] . '.jpg"/>
        </div>
     </div>
     
-	</div><div class="col-md-6"><textarea><video width="400" controls="controls" poster="http://vidja.wosc.edu/movietest/'.$movie['sharecode'].'.jpg"> <source src="http://vidja.wosc.edu/movietest/'.$movie['sharecode'].'.webm" type="video/webm" /> Your browser does not support HTML5 video. </video></textarea></div>
+	</div><div class="col-md-6"><textarea><video width="400" controls="controls" poster="http://vidja.wosc.edu/movietest/' . $movie['sharecode'] . '.jpg"> <source src="http://vidja.wosc.edu/movietest/' . $movie['sharecode'] . '.webm" type="video/webm" /> Your browser does not support HTML5 video. </video></textarea></div>
      </div>
      <script>
-    $(\'#rw'.$movie['id'].'\').click(function(){playvid("rw'.$movie['id'].'", "'.$movie['sharecode'].'");});</script>
+    $(\'#rw' . $movie['id'] . '\').click(function(){playvid("rw' . $movie['id'] . '", "' . $movie['sharecode'] . '");});</script>
      ';
 
 
-    echo "
+        echo "
     <script>
      function playvid(element, vid) {
          var d = document.getElementById(element);
@@ -39,8 +40,8 @@ foreach($movies as $movie) {
          d.innerHTML = '<video width=\"400\" controls=\"controls\" poster=\"/movietest/'+ v +'.jpg\"> <source src=\"/movietest/'+ v +'.webm\" type=\"video/webm\" /> Your browser does not support HTML5 video. </video>';
      }
      </script>";
+    }
 }
-
 
 require_once("themes/foot.html");
 
