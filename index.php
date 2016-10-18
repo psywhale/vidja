@@ -11,8 +11,11 @@ echo '<div class="page-header">
 
 echo "<h4><span class=\"label label-info\">Click the Thumbnail to load the video</span></h4>";
 
+//$DB->debug();
 
-$movies = $DB->get("Movies");
+$movies = $DB->select("Movies","*");
+
+
 if(is_array($movies)) {
     foreach ($movies as $movie) {
         echo '<div class="row"><div class="col-md-6" >
