@@ -20,7 +20,7 @@ echo <<<EOT
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-	<input type="hidden" name="MAX_FILE_SIZE" value="524288000" />
+	
         <input type="file" class="form-control id="file" name="file" accept="video/*">
       </div>
     </div>
