@@ -2,7 +2,7 @@
 require_once("config.php");
 //print_r($_REQUEST["title"]);
 //if(isset($_REQUEST["submit"])){
-
+$title = preg_replace("/[^A-Za-z0-9\ ]/","",$_REQUEST["title"]);
 if($_FILES["file"]['error'] === UPLOAD_ERR_OK)
 {
    $tmpname = $_FILES["file"]["tmp_name"];
@@ -15,6 +15,9 @@ if($_FILES["file"]['error'] === UPLOAD_ERR_OK)
    $sharecodes = str_split($baseencoded,8);
    $sharecode = $sharecodes[42];
    move_uploaded_file($tmpname,"$CFG->workdir/$sharecode.wip");
+   $idnumber = $DB->insert("Movies",["Title"=>$title,"sharecode"=>$sharecode,"#added"=>"now()"]);
+   //$idnumber = $DB->get("Movies",null,"id","sharecode=\"$sharecode\"");
+   $DB->insert("Status",["Movies_id"=>$idnumber,"status"=>"0"]);
 }
 else {
   $code = $_FILES["file"]['error'];
