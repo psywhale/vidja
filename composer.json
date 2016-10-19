@@ -10,7 +10,6 @@
     }
   ],
   "require": {
-    "catfan/medoo": "v1.1.3",
-    "php-ffmpeg/php-ffmpeg": "0.6.1"
+    "catfan/medoo": "v1.1.3"
   }
 }

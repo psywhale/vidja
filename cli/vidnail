@@ -12,7 +12,7 @@ else
 fi
 
 if [[ $(file --mime-type -b "$VIDFILE") == video/* ]]; then
-    ffmpeg -i $VIDFILE -ss 00:00:33 -vframes 1 $FILENAME.jpg
+    ffmpeg -i $VIDFILE -ss 00:00:33 -vframes 1  $2/$FILENAME.jpg
 else
     echo "Not a video file"
     exit

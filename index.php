@@ -26,7 +26,7 @@ if(is_array($movies)) {
                     <h3 class="panel-title">' . $movie['Title'] . '</h3>
                  </div>
                  <div class="panel-body" id="rw' . $movie['id'] . '">
-                    <img src="/'.$CFG->thumbstore.'/' . $movie['sharecode'] . '.jpg"/>
+                    <img src="/'.$CFG->thumbstore.'/' . $movie['sharecode'] . '.jpg" width="400"/>
                  </div>
                </div>    
 	        </div>

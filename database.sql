@@ -39,7 +39,7 @@ DROP TABLE IF EXISTS `Status`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Status` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `Movies_id` int(11) NOT NULL,
   `status` varchar(4) DEFAULT 'none',
   PRIMARY KEY (`id`),

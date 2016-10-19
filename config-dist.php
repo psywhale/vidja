@@ -11,7 +11,8 @@ $CFG->dbpassword="";
 $CFG->dbname="vidja";
 
 $CFG->workdir="/var/www/working";
-$CFG->videostore="/var/www/html/movietest";
-$CFG->thumbstore="/var/www/html/movietest";
+$CFG->webroot="/var/www/html";
+$CFG->videostore="movietest";
+$CFG->thumbstore="movietest";
 
 require_once("lib/load.php");
