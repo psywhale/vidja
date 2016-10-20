@@ -12,7 +12,18 @@ else
 fi
 
 if [[ $(file --mime-type -b "$VIDFILE") == video/* ]]; then
-    ffmpeg -i $VIDFILE -ss 00:00:33 -vframes 1  $2/$FILENAME.jpg
+    DUR=`ffprobe -v error -show_entries format=duration -sexagesimal -of default=noprint_wrappers=1:nokey=1 $1`
+    arry=($(echo $DUR | tr ":" "\n"))
+    printf -v hour '%d\n' ${arry[0]} 2>/dev/null
+    printf -v min '%d\n' ${arry[1]} 2>/dev/null
+    printf -v sec '%d\n' ${arry[2]} 2>/dev/null
+    echo $hour $min $sec
+    hour=$(expr $hour / 2)
+    min=$(expr $min / 2)
+    sec=$(expr $sec / 2)
+    echo $hour $min $sec
+
+    ffmpeg -i $VIDFILE -ss $hour:$min:$sec -vframes 1  $2/$FILENAME.jpg
 else
     echo "Not a video file"
     exit
