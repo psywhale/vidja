@@ -18,7 +18,7 @@ if($_FILES["file"]['error'] === UPLOAD_ERR_OK)
     $idnumber = $DB->insert("Movies",["Title"=>$title,"sharecode"=>$sharecode,"#added"=>"now()"]);
     //$idnumber = $DB->get("Movies",null,"id","sharecode=\"$sharecode\"");
     $DB->insert("Status",["Movies_id"=>$idnumber,"status"=>"0"]);
-
+    exec("cli/vidnail $CFG->workdir/$sharecode.wip $CFG->wwwroot/$CFG->thumbstore/");
     exec("cli/makewebm $CFG->workdir/$sharecode.wip $CFG->wwwroot/$CFG->videostore/");
 
 

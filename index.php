@@ -30,7 +30,7 @@ if(is_array($movies)) {
                  </div>
                </div>    
 	        </div>
-	            <div class="col-md-6"><textarea><video width="400" controls="controls" poster="http://vidja.wosc.edu/'.$CFG->thumbstore.'/' . $movie['sharecode'] . '.jpg"> <source src="http://vidja.wosc.edu/'.$CFG->videostore.'/'. $movie['sharecode'] . '.webm" type="video/webm" /> Your browser does not support HTML5 video. </video></textarea></div>
+	            <div class="col-md-6"><textarea><video width="400" controls="controls" poster="http://vidja.wosc.edu/'.$CFG->thumbstore.'/' . $movie['sharecode'] . '.jpg" style="max-width:100%"> <source src="http://vidja.wosc.edu/'.$CFG->videostore.'/'. $movie['sharecode'] . '.webm" type="video/webm" /> Your browser does not support HTML5 video. </video></textarea></div>
             </div>
      <script>
     $(\'#rw' . $movie['id'] . '\').click(function(){playvid("rw' . $movie['id'] . '", "' . $movie['sharecode'] . '");});</script>
