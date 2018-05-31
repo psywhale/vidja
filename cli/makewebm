@@ -13,7 +13,7 @@ else
 fi
 
 if [[ $(file --mime-type -b "$VIDFILE") == video/* ]]; then
-    ffmpeg -v 0 -progress "/tmp/movie$FILENAME.status" -hwaccel auto -i "$VIDFILE" -vf scale=w=320:h=240:force_original_aspect_ratio=decrease -vcodec vp9 -acodec libvorbis "$FILENAME.webm" &
+    ffmpeg  -v 0 -progress "/tmp/movie$FILENAME.status" -hwaccel auto -i "$VIDFILE" -vf scale=w=853:h=480:force_original_aspect_ratio=decrease -vcodec vp9 -acodec libvorbis "$2/$FILENAME.webm" &
 
 else
     echo "Not a video file"
