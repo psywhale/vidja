@@ -13,7 +13,7 @@ echo "<h4><span class=\"label label-info\">Click the Thumbnail to load the video
 
 //$DB->debug();
 
-$movies = $DB->select("Movies","*");
+$movies = $DB->select("Movies",,"*","status");
 
 
 if(is_array($movies)) {

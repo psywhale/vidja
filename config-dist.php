@@ -15,4 +15,10 @@ $CFG->webroot="/var/www/html";
 $CFG->videostore="movietest";
 $CFG->thumbstore="movietest";
 
+// RabbitMQ configuration
+$CFG->rMQhost = "localhost";
+$CFG->rMQvhost = "/";
+$CFG->rMQuser = "guest";
+$CFG->rMQpassword = "guest";
+
 require_once("lib/load.php");

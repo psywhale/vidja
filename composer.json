@@ -10,6 +10,7 @@
     }
   ],
   "require": {
-    "catfan/medoo": "v1.1.3"
+    "catfan/medoo": "v1.1.3",
+    "bunny/bunny": "^0.4.1"
   }
 }

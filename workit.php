@@ -2,7 +2,8 @@
 require_once("config.php");
 //print_r($_REQUEST["title"]);
 //if(isset($_REQUEST["submit"])){
-$title = preg_replace("/[^A-Za-z0-9\ ]/","",$_REQUEST["title"]);
+
+$title = preg_replace("/[^A-Za-z0-9 ]/","",$_REQUEST["title"]);
 if($_FILES["file"]['error'] === UPLOAD_ERR_OK)
 {
     $tmpname = $_FILES["file"]["tmp_name"];
@@ -18,8 +19,8 @@ if($_FILES["file"]['error'] === UPLOAD_ERR_OK)
     $idnumber = $DB->insert("Movies",["Title"=>$title,"sharecode"=>$sharecode,"#added"=>"now()"]);
     //$idnumber = $DB->get("Movies",null,"id","sharecode=\"$sharecode\"");
     $DB->insert("Status",["Movies_id"=>$idnumber,"status"=>"0"]);
-    exec("cli/vidnail $CFG->workdir/$sharecode.wip $CFG->wwwroot/$CFG->thumbstore/");
-    exec("cli/makewebm $CFG->workdir/$sharecode.wip $CFG->wwwroot/$CFG->videostore/");
+    exec("cli/vidnail $CFG->workdir/$sharecode.wip $CFG->wwwroot/$CFG->thumbstore/ > /dev/null 2>&1 & echo $! ");
+    exec("cli/makewebm $CFG->workdir/$sharecode.wip $CFG->wwwroot/$CFG->videostore/ > /dev/null 2>&1 & echo $!");
 
 
     require_once ("themes/head.html");
